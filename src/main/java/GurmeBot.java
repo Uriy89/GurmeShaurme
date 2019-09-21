@@ -66,12 +66,9 @@ public class GurmeBot extends TelegramLongPollingBot {
      * @param chat_id
      */
     private void keyBoard(final long chat_id, String msg) {
-        SendMessage message = new SendMessage()
-                .setChatId(chat_id)
-                .setText(msg);
+        SendMessage message = new SendMessage().setChatId(chat_id).setText(msg);
         List<KeyboardRow> keyboard = new ArrayList<>();
         KeyboardRow row = new KeyboardRow();
-        //this.replykeyboardMarkup.setKeyboard(keyboard);
         this.replykeyboardMarkup.setSelective(true);
         this.replykeyboardMarkup.setResizeKeyboard(true);
         row.add(EmojiParser.parseToUnicode("Меню:book:"));
@@ -94,9 +91,7 @@ public class GurmeBot extends TelegramLongPollingBot {
      * @param chat_id
      */
     private void shaverma(final long chat_id) {
-        SendMessage message = new SendMessage()
-                .setChatId(chat_id)
-                .setText("Наше меню\nhttps://sun9-4.userapi.com/c841539/v841539500/5c868/W-eFYH2vZK8.jpg");
+        SendMessage message = new SendMessage().setChatId(chat_id).setText("Наше меню\nhttps://sun9-4.userapi.com/c841539/v841539500/5c868/W-eFYH2vZK8.jpg");
         List<KeyboardRow> keyboard = new ArrayList<>();
         KeyboardRow row = new KeyboardRow();
         this.replykeyboardMarkup.setSelective(true);
@@ -133,9 +128,7 @@ public class GurmeBot extends TelegramLongPollingBot {
      * @param chat_id
      */
     protected void pelmeni(final long chat_id) throws TelegramApiException {
-        SendPhoto photo = new SendPhoto()
-                .setChatId(chat_id)
-                .setPhoto("https://vk.com/albums-103273523?z=photo-103273523_456239033%2Fphotos-103273523");
+        SendPhoto photo = new SendPhoto().setChatId(chat_id).setPhoto("https://vk.com/albums-103273523?z=photo-103273523_456239033%2Fphotos-103273523");
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
@@ -158,29 +151,19 @@ public class GurmeBot extends TelegramLongPollingBot {
      * @param chat_id
      */
     public void shavermaInPita(final long chat_id) {
-        SendMessage message = new SendMessage()
-                .setChatId(chat_id)
-                .setText("Шаверма в пите (мясо, огурец, помидор, корейская капуста - морковь, лук и соус в пите обжаренной на гриле)\nhttps://sun9-54.userapi.com/c636324/v636324086/41fdd/wfFPfF_WMwE.jpg");
+        SendMessage message = new SendMessage().setChatId(chat_id).setText(getAnswer("shaverma.pita"));
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С курицей 230 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.pita.chiken")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С говядиной 310 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.pita.beef")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С олениной 360 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.pita.venison")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("Корзина")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText("Корзина").setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         markupInline.setKeyboard(rowsInline);
         message.setReplyMarkup(markupInline);
@@ -196,34 +179,22 @@ public class GurmeBot extends TelegramLongPollingBot {
      * @param chat_id
      */
     public void shavermaInLavash(final long chat_id) {
-        SendMessage message = new SendMessage()
-                .setChatId(chat_id)
-                .setText(getAnswer("shinlavash"));
+        SendMessage message = new SendMessage().setChatId(chat_id).setText(getAnswer("shaverma.lavash"));
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText(getAnswer("shinlavashchicken"))
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.lavash.chicken")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText(getAnswer("shinlavashbeef"))
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.lavash.beef")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText(getAnswer("shinlavashvenison"))
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.lavash.venison")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText(getAnswer("shinlavashmutton"))
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.lavash.mutton")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("Корзина")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText("Корзина").setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         markupInline.setKeyboard(rowsInline);
         message.setReplyMarkup(markupInline);
@@ -240,29 +211,19 @@ public class GurmeBot extends TelegramLongPollingBot {
      * @param chat_id
      */
     public void shavermaOnPlate(final long chat_id) {
-        SendMessage message = new SendMessage()
-                .setChatId(chat_id)
-                .setText("Шаверма на тарелке (мясо, картофель фри, огурец, помидор, лук, капуста, морковь, соус подается с обжаренной на гриле питой)\nhttps://sun9-26.userapi.com/c636324/v636324086/41fe7/yS5FynNnjts.jpg");
+        SendMessage message = new SendMessage().setChatId(chat_id).setText(getAnswer("shaverma.plate"));
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С курицей 280 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.plate.chicken")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С говядиной 360 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.plate.beef")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С олениной 410 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.plate.vension")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("Корзина")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText("Корзина").setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         markupInline.setKeyboard(rowsInline);
         message.setReplyMarkup(markupInline);
@@ -278,29 +239,19 @@ public class GurmeBot extends TelegramLongPollingBot {
      * @param chat_id
      */
     public void shavermaClassic(final long chat_id) {
-        SendMessage message = new SendMessage()
-                .setChatId(chat_id)
-                .setText("Шаверма классика (мясо, огурец, помидор, лук и соус в хрустящем лаваше)\nhttps://sun9-21.userapi.com/c636324/v636324086/41fd3/6mnMYH4k314.jpg");
+        SendMessage message = new SendMessage().setChatId(chat_id).setText(getAnswer("shaverma.classic"));
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С курицей 280 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.classic.chicken")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С говядиной 360 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.classic.beef")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С олениной 410 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.classic.vension")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("Корзина")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText("Корзина").setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         markupInline.setKeyboard(rowsInline);
         message.setReplyMarkup(markupInline);
@@ -316,29 +267,19 @@ public class GurmeBot extends TelegramLongPollingBot {
      * @param chat_id
      */
     public void shavermaTurkish(final long chat_id) {
-        SendMessage message = new SendMessage()
-                .setChatId(chat_id)
-                .setText("Шаверма по-турецки (мясо, картофель фри, огурец, помидор, корейская капуста - морковь, лук и соус в хрустящем лаваше)\n https://sun9-53.userapi.com/c636324/v636324086/41fc9/WYp29EqhrFs.jpg");
+        SendMessage message = new SendMessage().setChatId(chat_id).setText(getAnswer("shaverma.turkish"));
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С курицей 260 руб.")
-                .setCallbackData("tur260"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.turkish.chicken")).setCallbackData("tur260"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С говядиной 320 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.turkish.beef")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С олениной 370 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.turkish.vension")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("Корзина")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText("Корзина").setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         markupInline.setKeyboard(rowsInline);
         message.setReplyMarkup(markupInline);
@@ -354,29 +295,19 @@ public class GurmeBot extends TelegramLongPollingBot {
      * @param chat_id
      */
     public void shavermaBurrito(final long chat_id) {
-        SendMessage message = new SendMessage()
-                .setChatId(chat_id)
-                .setText("Шаверма Буррито (мясо, корейская капуста - морковь, помидор, огурец, фасоль, кукуруза и острый томатный соус в хрустящем лаваше\nhttps://sun9-47.userapi.com/c637331/v637331086/2c654/BbWyglMTVks.jpg");
+        SendMessage message = new SendMessage().setChatId(chat_id).setText(getAnswer("shaverma.burrito"));
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С курицей 210 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.burrito.chicken")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С говядиной 290 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.burrito.beef")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С олениной 350 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.burrito.vension")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("Корзина")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText("Корзина").setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         markupInline.setKeyboard(rowsInline);
         message.setReplyMarkup(markupInline);
@@ -392,25 +323,16 @@ public class GurmeBot extends TelegramLongPollingBot {
      * @param chat_id
      */
     public void shavermaVegan(final long chat_id) {
-        SendMessage message = new SendMessage()
-                .setChatId(chat_id)
-                .setText("Шаверма с грибами (шампиньоны обжаренные, огурец, помидор, сыр, корейская капуста - морковь, лук и соус в хрустящем лаваше)\nШаверма с фалафелем (фалафель, помидор, огурец, корейская капуста-морковь, лук и соус в хрустящем \n" +
-                        "лаваше) https://sun9-15.userapi.com/c637331/v637331086/2c643/oggCnh8fglQ.jpg");
+        SendMessage message = new SendMessage().setChatId(chat_id).setText(getAnswer("shaverma.vegan"));
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С грибами 240 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.vegan.mushrooms")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("С фалафелем 220 руб.")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getAnswer("shaverma.vegan.falafel")).setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText("Корзина")
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText("Корзина").setCallbackData("update_msg_text"));
         rowsInline.add(rowInline);
         markupInline.setKeyboard(rowsInline);
         message.setReplyMarkup(markupInline);
@@ -437,17 +359,13 @@ public class GurmeBot extends TelegramLongPollingBot {
     }
 
     public void basket(String callbackId) {
-        SendMessage message = new SendMessage()
-                .setChatId(chat_id)
-                .setText(callbackId);
+        SendMessage message = new SendMessage().setChatId(chat_id).setText(callbackId);
         AnswerCallbackQuery answer = new AnswerCallbackQuery();
         answer.setCallbackQueryId(callbackId);
         answer.setShowAlert(true);
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton()
-                .setText(getPrace(callbackId))
-                .setCallbackData("update_msg_text"));
+        rowInline.add(new InlineKeyboardButton().setText(getPrace(callbackId)).setCallbackData("update_msg_text"));
         try {
             execute(answer);
             execute(message);
