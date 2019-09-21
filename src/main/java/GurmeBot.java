@@ -456,6 +456,10 @@ public class GurmeBot extends TelegramLongPollingBot {
         }
     }
 
+    private int result(String str) {
+        int res = Integer.parseInt(str.replaceAll("\\D+",""));
+        return res;
+    }
 
     @Override
     public String getBotUsername() {
