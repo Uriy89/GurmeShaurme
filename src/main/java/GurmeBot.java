@@ -2,7 +2,6 @@ import com.vdurmont.emoji.EmojiParser;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.AnswerCallbackQuery;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
@@ -122,29 +121,6 @@ public class GurmeBot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
-
-    /**
-     * Прайс пельменей
-     * @param chat_id
-     */
-    protected void pelmeni(final long chat_id) throws TelegramApiException {
-        SendPhoto photo = new SendPhoto().setChatId(chat_id).setPhoto("https://vk.com/albums-103273523?z=photo-103273523_456239033%2Fphotos-103273523");
-        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
-        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
-        List<InlineKeyboardButton> rowInline = new ArrayList<>();
-        rowInline.add(new InlineKeyboardButton().setText("10 шт. 190 руб.").setCallbackData("update_msg_text"));
-        rowInline.add(new InlineKeyboardButton().setText("1 кг. 1000 руб.").setCallbackData("update_msg_text"));
-        rowInline.add(new InlineKeyboardButton().setText("Корзина").setCallbackData("update_msg_text"));
-        rowsInline.add(rowInline);
-        markupInline.setKeyboard(rowsInline);
-        photo.setReplyMarkup(markupInline);
-        try {
-            execute(photo);
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     /**
      * Шаверма в пите
